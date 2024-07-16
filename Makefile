@@ -24,3 +24,6 @@ brain-gcd:
 
 brain-progressions:
 	poetry run brain-progressions
+
+brain-prime:
+	poetry run brain-prime
