@@ -1,4 +1,4 @@
-from brain_games import welcome_user
+from brain_games.cli import welcome_user
 import random
 from brain_games.scripts.game_rules import ROUND_LIMIT
 from brain_games.scripts.game_rules import ask_question, compare_answer

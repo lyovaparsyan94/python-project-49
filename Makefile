@@ -21,3 +21,6 @@ brain-calc:
 
 brain-gcd:
 	poetry run brain-gcd
+
+brain-progressions:
+	poetry run brain-progressions

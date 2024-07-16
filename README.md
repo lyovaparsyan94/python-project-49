@@ -4,3 +4,4 @@
 
 ### make lint, make brain-games, make brain-even: https://asciinema.org/a/HlwDeRJ4J3niG6VXs7Eiii7RN
 ### make brain-gcd: https://asciinema.org/a/o2ihRrHA8O3Ir3zRA5bwbgZW3
+### make brain-progressions https://asciinema.org/a/ECwXKFGMlzmyqR5C37yL5lfvW
