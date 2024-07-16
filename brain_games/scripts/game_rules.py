@@ -9,9 +9,7 @@ def ask_question(question):
     return answer
 
 
-def compare_answer(user, answer, result):
+def compare_answer(answer, result):
     if str(answer) != str(result):
-        print(f"'{answer}' is wrong answer ;(. "
-              f"Correct answer was '{result}'.\nLet's try again, {user}!")
         return False
-    print(f"Correct!\nCongratulations, {user}!")
+    return True

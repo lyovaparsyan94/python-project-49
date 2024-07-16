@@ -15,10 +15,17 @@ def calculate(name):
         result = eval(expression)
         print('What is the result of the expression?')
         answer = ask_question(f'Question: {expression}')
-        round_counter += 1
-        right_answer = compare_answer(user=name, answer=answer, result=result)
-        if right_answer is False:
+        right_answer = compare_answer(answer=answer, result=result)
+
+        if right_answer:
+            print("Correct!")
+            round_counter += 1
+        else:
+            print(f"'{answer}' is wrong answer ;(. Correct answer was '{result}'.")
+            print(f"Let's try again, {name}!")
             return
+
+    print(f"Congratulations, {name}!")
 
 
 def main():

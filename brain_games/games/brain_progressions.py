@@ -24,10 +24,17 @@ def calculate(name):
 
         print('What number is missing in the progression?')
         answer = ask_question(f'Question: {progression_str}')
-        round_counter += 1
-        right_answer = compare_answer(user=name, answer=answer, result=correct_answer)
-        if right_answer is False:
+        right_answer = compare_answer(answer=answer, result=correct_answer)
+
+        if right_answer:
+            print("Correct!")
+            round_counter += 1
+        else:
+            print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.")
+            print(f"Let's try again, {name}!")
             return
+
+    print(f"Congratulations, {name}!")
 
 
 def main():
