@@ -1,7 +1,5 @@
 from random import randint
-from brain_games.cli import welcome_user
-from brain_games.scripts.game_rules import ask_question, compare_answer
-from brain_games.scripts.game_rules import ROUND_LIMIT
+from brain_games.scripts.game_engine import run_game
 
 
 def gcd(a, b):
@@ -10,31 +8,17 @@ def gcd(a, b):
     return a
 
 
-def calculate(name):
-    round_counter = 0
-    while round_counter < ROUND_LIMIT:
-        left_number = randint(1, 100)
-        right_number = randint(1, 100)
-        correct_answer = gcd(left_number, right_number)
-        print('Find the greatest common divisor of given numbers.')
-        answer = ask_question(f'Question: {left_number} {right_number}')
-        right_answer = compare_answer(answer=answer, result=correct_answer)
-
-        if right_answer:
-            print("Correct!")
-            round_counter += 1
-        else:
-            print(f"'{answer}' is wrong answer ;(. "
-                  f"Correct answer was '{correct_answer}'.")
-            print(f"Let's try again, {name}!")
-            return
-
-    print(f"Congratulations, {name}!")
+def generate_question_and_answer():
+    left_number = randint(1, 100)
+    right_number = randint(1, 100)
+    question = f"{left_number} {right_number}"
+    correct_answer = str(gcd(left_number, right_number))
+    return question, correct_answer
 
 
 def main():
-    name = welcome_user()
-    calculate(name)
+    game_rule = 'Find the greatest common divisor of given numbers.'
+    run_game(generate_question_and_answer, game_rule, "GCD Game")
 
 
 if __name__ == "__main__":

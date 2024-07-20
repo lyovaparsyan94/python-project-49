@@ -1,37 +1,20 @@
 from random import choice, randint
-from brain_games.cli import welcome_user
-from brain_games.scripts.game_rules import ask_question, compare_answer
-from brain_games.scripts.game_rules import ROUND_LIMIT
+from brain_games.scripts.game_engine import run_game
 
 
-def calculate(name):
-    round_counter = 0
+def generate_question_and_answer():
     operands = ['*', '-', '+']
-    while round_counter < ROUND_LIMIT:
-        left_number = randint(1, 100)
-        right_number = randint(1, 100)
-        action = choice(operands)
-        expression = f"{left_number} {action} {right_number}"
-        result = eval(expression)
-        print('What is the result of the expression?')
-        answer = ask_question(f'Question: {expression}')
-        right_answer = compare_answer(answer=answer, result=result)
-
-        if right_answer:
-            print("Correct!")
-            round_counter += 1
-        else:
-            print(f"'{answer}' is wrong answer ;(. "
-                  f"Correct answer was '{result}'.")
-            print(f"Let's try again, {name}!")
-            return
-
-    print(f"Congratulations, {name}!")
+    left_number = randint(1, 100)
+    right_number = randint(1, 100)
+    action = choice(operands)
+    question = f"{left_number} {action} {right_number}"
+    correct_answer = str(eval(question))
+    return question, correct_answer
 
 
 def main():
-    name = welcome_user()
-    calculate(name)
+    game_rule = 'What is the result of the expression?'
+    run_game(generate_question_and_answer, game_rule, "Calculate Game")
 
 
 if __name__ == "__main__":

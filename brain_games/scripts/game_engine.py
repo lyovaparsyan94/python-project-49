@@ -1,5 +1,6 @@
-from brain_games.cli import welcome_user
-from brain_games.scripts.game_rules import ask_question, compare_answer, ROUND_LIMIT
+from brain_games.scripts.game_utils import (
+    welcome_user, ask_question, compare_answer, ROUND_LIMIT
+)
 
 
 def run_game(game_logic, game_rule, game_name):
@@ -9,7 +10,7 @@ def run_game(game_logic, game_rule, game_name):
 
     while round_counter < ROUND_LIMIT:
         question, correct_answer = game_logic()
-        answer = ask_question(f'Question: {question}').strip().lower()
+        answer = ask_question(f'Question: {question}')
         right_answer = compare_answer(answer=answer, result=correct_answer)
 
         if right_answer:

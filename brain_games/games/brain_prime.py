@@ -1,7 +1,5 @@
 from random import randint
-from brain_games.cli import welcome_user
-from brain_games.scripts.game_rules import ask_question, compare_answer
-from brain_games.scripts.game_rules import ROUND_LIMIT
+from brain_games.scripts.game_engine import run_game
 
 
 def is_prime(n):
@@ -13,31 +11,16 @@ def is_prime(n):
     return True
 
 
-def calculate(name):
-    round_counter = 0
-    while round_counter < ROUND_LIMIT:
-        number = randint(1, 100)
-        correct_answer = "yes" if is_prime(number) else "no"
-
-        print('Answer "yes" if given number is prime. Otherwise answer "no".')
-        answer = ask_question(f'Question: {number}')
-        right_answer = compare_answer(answer=answer, result=correct_answer)
-
-        if right_answer:
-            print("Correct!")
-            round_counter += 1
-        else:
-            print(f"'{answer}' is wrong answer ;(. "
-                  f"Correct answer was '{correct_answer}'.")
-            print(f"Let's try again, {name}!")
-            return
-
-    print(f"Congratulations, {name}!")
+def generate_question_and_answer():
+    number = randint(1, 100)
+    question = str(number)
+    correct_answer = "yes" if is_prime(number) else "no"
+    return question, correct_answer
 
 
 def main():
-    name = welcome_user()
-    calculate(name)
+    game_rule = 'Answer "yes" if given number is prime. Otherwise answer "no".'
+    run_game(generate_question_and_answer, game_rule, "Prime Game")
 
 
 if __name__ == "__main__":
