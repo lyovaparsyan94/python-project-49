@@ -16,7 +16,3 @@ def generate_question_and_answer():
 def main():
     game_rule = 'Answer "yes" if the number is even, otherwise answer "no".'
     run_game(generate_question_and_answer, game_rule, "Even Game")
-
-
-if __name__ == "__main__":
-    main()

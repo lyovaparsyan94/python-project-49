@@ -21,7 +21,3 @@ def generate_question_and_answer():
 def main():
     game_rule = 'Answer "yes" if given number is prime. Otherwise answer "no".'
     run_game(generate_question_and_answer, game_rule, "Prime Game")
-
-
-if __name__ == "__main__":
-    main()

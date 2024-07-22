@@ -24,7 +24,3 @@ def generate_question_and_answer():
 def main():
     game_rule = 'What number is missing in the progression?'
     run_game(generate_question_and_answer, game_rule, "Progression Game")
-
-
-if __name__ == "__main__":
-    main()
