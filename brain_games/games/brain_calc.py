@@ -1,28 +1,34 @@
-from random import choice, randint
-from brain_games.scripts.game_engine import run_game
+def generate_round():
+    question = "2 + 2"
+    answer = "4"
+    return question, answer
 
+import random
+from brain_games.cli import welcome_user
+import operator
 
-def compute_expression(left_number, right_number, action):
-    if action == '+':
-        return left_number + right_number
-    elif action == '-':
-        return left_number - right_number
-    elif action == '*':
-        return left_number * right_number
-    else:
-        raise ValueError(f"Unsupported operation: {action}")
+OPS = {'+': operator.add, '-': operator.sub, '*': operator.mul}
 
+def get_question():
+    num1 = random.randint(1, 20)
+    num2 = random.randint(1, 20)
+    op = random.choice(list(OPS.keys()))
+    return num1, num2, op
 
-def generate_question_and_answer():
-    operands = ['*', '-', '+']
-    left_number = randint(1, 100)
-    right_number = randint(1, 100)
-    action = choice(operands)
-    question = f"{left_number} {action} {right_number}"
-    correct_answer = str(compute_expression(left_number, right_number, action))
-    return question, correct_answer
-
-
-def main():
-    game_rule = 'What is the result of the expression?'
-    run_game(generate_question_and_answer, game_rule, "Calculate Game")
+def play():
+    name = welcome_user()
+    print('What is the result of the expression?')
+    correct_answers = 0
+    while correct_answers < 3:
+        num1, num2, op = get_question()
+        print(f"Question: {num1} {op} {num2}")
+        answer = input("Your answer: ").strip()
+        correct_answer = str(OPS[op](num1, num2))
+        if answer == correct_answer:
+            print("Correct!")
+            correct_answers += 1
+        else:
+            print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.")
+            print(f"Let's try again, {name}!")
+            return
+    print(f"Congratulations, {name}!")

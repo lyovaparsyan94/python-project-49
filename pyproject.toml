@@ -1,27 +1,23 @@
-[tool.poetry]
+[project]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
-authors = ["Your Name <you@example.com>"]
+description = "Brain Games – консольные игры для тренировки логики"
 readme = "README.md"
-packages = [
-    { include = "brain_games" },
-]
-
-[tool.poetry.dependencies]
-python = "^3.10"
-py-make = "^0.1.2"
-prompt = "^0.4.1"
-asciinema = "^2.4.0"
-
-[tool.poetry.dev-dependencies]
-flake8 = "^7.1.0"
+requires-python = ">=3.10"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry.scripts]
+[tool.hatch.build.targets.wheel]
+packages = ["brain_games"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest",
+]
+
+[project.scripts]
 brain-games = "brain_games.games.brain_games:main"
 brain-even = "brain_games.games.brain_even:main"
 brain-calc = "brain_games.games.brain_calc:main"
