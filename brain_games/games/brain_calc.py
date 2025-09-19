@@ -1,6 +1,7 @@
-import random
-from brain_games.cli import welcome_user
 import operator
+import random
+
+from brain_games.cli import welcome_user
 
 
 def generate_round():
@@ -32,7 +33,8 @@ def play():
             print("Correct!")
             correct_answers += 1
         else:
-            print(f"'{answer}' is wrong answer ;(. Correct answer was '{correct_answer}'.")
+            print(f"'{answer}' is wrong answer ;(. "
+                  f"Correct answer was '{correct_answer}'.")
             print(f"Let's try again, {name}!")
             return
     print(f"Congratulations, {name}!")

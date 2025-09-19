@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "prompt>=0.4.1",
+    "ruff>=0.13.1",
 ]
 
 [build-system]
@@ -16,9 +17,7 @@ build-backend = "hatchling.build"
 packages = ["brain_games"]
 
 [tool.uv]
-dev-dependencies = [
-    "pytest",
-]
+dev-dependencies = []
 
 [project.scripts]
 brain-games = "brain_games.scripts.brain_games:main"
