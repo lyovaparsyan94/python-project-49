@@ -1,15 +1,18 @@
+import random
+from brain_games.cli import welcome_user
+
+
 def generate_round():
     question = "1 2 3 4 5"
     answer = "5"
     return question, answer
 
-import random
-from brain_games.cli import welcome_user
 
 def generate_progression(length=10):
     start = random.randint(1, 20)
     step = random.randint(1, 10)
     return [start + step * i for i in range(length)]
+
 
 def play():
     name = welcome_user()
@@ -30,3 +33,7 @@ def play():
             print(f"Let's try again, {name}!")
             return
     print(f"Congratulations, {name}!")
+
+
+def main():
+    play()

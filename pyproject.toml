@@ -4,6 +4,9 @@ version = "0.1.0"
 description = "Brain Games – консольные игры для тренировки логики"
 readme = "README.md"
 requires-python = ">=3.10"
+dependencies = [
+    "prompt>=0.4.1",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -18,7 +21,7 @@ dev-dependencies = [
 ]
 
 [project.scripts]
-brain-games = "brain_games.games.brain_games:main"
+brain-games = "brain_games.scripts.brain_games:main"
 brain-even = "brain_games.games.brain_even:main"
 brain-calc = "brain_games.games.brain_calc:main"
 brain-gcd = "brain_games.games.brain_gcd:main"

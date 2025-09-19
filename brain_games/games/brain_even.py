@@ -1,16 +1,20 @@
+import random
+from brain_games.cli import welcome_user
+
+
 def generate_round():
     question = "2"
     answer = "even"
     return question, answer
 
-    import random
-from brain_games.cli import welcome_user
 
 def is_even(number):
     return number % 2 == 0
 
+
 def get_question():
     return random.randint(1, 100)
+
 
 def play():
     name = welcome_user()
@@ -29,3 +33,7 @@ def play():
             print(f"Let's try again, {name}!")
             return
     print(f"Congratulations, {name}!")
+
+
+def main():
+    play()

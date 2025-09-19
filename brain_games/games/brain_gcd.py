@@ -1,16 +1,19 @@
+import random
+from brain_games.cli import welcome_user
+import math
+
+
 def generate_round():
     question = "8 12"
     answer = "4"
     return question, answer
 
-import random
-from brain_games.cli import welcome_user
-import math
 
 def get_question():
     num1 = random.randint(1, 100)
     num2 = random.randint(1, 100)
     return num1, num2
+
 
 def play():
     name = welcome_user()
@@ -29,3 +32,7 @@ def play():
             print(f"Let's try again, {name}!")
             return
     print(f"Congratulations, {name}!")
+
+
+def main():
+    play()
