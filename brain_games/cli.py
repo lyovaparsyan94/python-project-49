@@ -7,5 +7,9 @@ def welcome_user():
     return name
 
 
-if __name__ == "__main__":
+def main():
     welcome_user()
+
+
+if __name__ == "__main__":
+    main()
