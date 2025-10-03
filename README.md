@@ -3,6 +3,8 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/84bf161038a06bd52b1f/maintainability)](https://codeclimate.com/github/lyovaparsyan94/python-project-49/maintainability)
 
 
+
+
 ## Demo links
 
 ### make lint, make brain-games, make brain-even: https://asciinema.org/a/HlwDeRJ4J3niG6VXs7Eiii7RN
@@ -85,5 +87,6 @@ Lint the project:
       make lint
 
 Publish the package (dry run):
+
 
       make publish
